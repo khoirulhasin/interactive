@@ -1,0 +1,1 @@
+export { messageValidationRules } from './messageValidator';
