@@ -9,12 +9,10 @@ jspm_packages
 .esbuild
 
 src/models/mongo/schema.prisma
-src/models/mongo/genereted
+src/models/mongo/generated
 src/models/postgre/schema.prisma
-src/models/postgre/genereted
+src/models/postgre/generated
 
 package-lock.json
-
 lib
-
 .nvmrc
