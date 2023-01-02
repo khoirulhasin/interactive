@@ -8,7 +8,10 @@ jspm_packages
 # esbuild directories
 .esbuild
 
-src/models/schema.prisma
+src/models/mongo/schema.prisma
+src/models/mongo/genereted
+src/models/postgre/schema.prisma
+src/models/postgre/genereted
 
 package-lock.json
 
