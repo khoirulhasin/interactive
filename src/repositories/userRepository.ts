@@ -1,6 +1,6 @@
-import { prisma } from '@config/database';
+import { prisma as prismaPostgre } from '@config/databasePostgre';
 
 export const getUsersRepository = async () => {
-    const users = await prisma.user.findMany();
+    const users = await prismaPostgre.user.findMany();
     return users;
 } 
