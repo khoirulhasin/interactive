@@ -5,6 +5,6 @@ import { validate } from '@middlewares/index';
 
 export const messageRoute = express.Router();
 
-messageRoute.get('/index', messageValidationRules(), validate, messageController.messageIndex);
+messageRoute.post('/index', messageValidationRules(), validate, messageController.messageIndex);
 
 

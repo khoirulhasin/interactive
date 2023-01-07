@@ -1,8 +1,9 @@
-import express from 'express';
+import express, { Request } from 'express';
 import { routes } from '@routes/index';
 import  { accessLog, errorLog, response } from '@middlewares/index';
 import  dotenv  from 'dotenv';
 import  dotenvExpand from 'dotenv-expand';
+import cors from 'cors';
 
 const env = dotenv.config({
   path: `${process.cwd}/src/environment/.env`
@@ -22,8 +23,10 @@ app.use(express.json());
 
 app.use(response);
 
+app.use(cors<Request>());
 
 app.use('/', routes);
+
 
 app.use(errorLog);
 

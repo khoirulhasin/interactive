@@ -4,5 +4,5 @@ import  { userRoute }  from './userRoute';
 
 export const routes = express.Router();
 
-routes.use('/message', messageRoute);
+routes.use('/messages', messageRoute);
 routes.use('/users', userRoute);
