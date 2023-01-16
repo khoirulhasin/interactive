@@ -25,6 +25,7 @@ app.use(response);
 
 app.use(cors<Request>());
 
+// this is the routes
 app.use('/', routes);
 
 // show log error
