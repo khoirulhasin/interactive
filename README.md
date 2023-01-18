@@ -10,13 +10,13 @@ This api is provided to share data among devices connected to, those can be web,
 - mongodb client
 - prisma
 
-## requirements
+## Requirements
 
 - nodejs 16.13.1
 - postgresql 14.5
 - mongodb 6.0.2
 
-## the steps
+## The steps
 
 1. `git clone https://github.com/khoirulhasin/ais_backend.git [project_name]`
 2. `cd [project_name]`
@@ -24,4 +24,4 @@ This api is provided to share data among devices connected to, those can be web,
 4. `npm run dev`
 5. `http://localhost:400/messages/index`
 
-~nb: To custom configuration, please check src/environments/.env~ 
+*nb: To custom configuration, please check src/environments/.env*
