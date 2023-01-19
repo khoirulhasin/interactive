@@ -2,7 +2,7 @@
 
 This api is provided to share data among devices connected to, those can be web, android, arduino, rasberry, etc.
 
-## The platforms
+## Platforms
 
 - typescipt
 - nodejs/expressjs
@@ -16,7 +16,7 @@ This api is provided to share data among devices connected to, those can be web,
 - postgresql 14.5
 - mongodb 6.0.2
 
-## The steps
+## Steps
 
 1. `git clone https://github.com/khoirulhasin/ais_backend.git [project_name]`
 2. `cd [project_name]`
