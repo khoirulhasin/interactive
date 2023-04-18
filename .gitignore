@@ -16,3 +16,6 @@ src/models/postgre/generated
 package-lock.json
 lib
 .nvmrc
+src/environments/.env
+npm-debug.log
+postgres-data

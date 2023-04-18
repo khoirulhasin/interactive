@@ -1,8 +1,9 @@
 import express from 'express';
-import { getUsersController } from '@controllers/userController';
+import { getUsersController, insertUserController } from '@controllers/userController';
 
 export const userRoute = express.Router();
 
-userRoute.get('/index', getUsersController);
+userRoute.post('/index', getUsersController);
+userRoute.post('/insert', insertUserController);
 
 

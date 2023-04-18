@@ -25,3 +25,22 @@ This api is provided to share data among devices connected to, those can be web,
 5. `http://localhost:400/messages/index`
 
 *nb: To custom configuration, please check src/environments/.env*
+
+## Docker
+
+`docker compose --verbose up --detach --build`
+
+`docker compose -f docker-compose.yml -f docker-compose.dev.yml --verbose up -d`
+
+`docker exec -it backend-ais /bin/sh`
+
+`docker images -a -q | % { docker image rm $_ -f }`
+
+`docker rmi -f $(docker images -aq)`
+
+`docker rm -vf $(docker ps -aq)`
+
+`docker compose logs --follow`
+
+## Debug
+Especially for Windows, when running localhost:4000 then you face **empty response**, please restart  **Host Nework Service**
