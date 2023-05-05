@@ -1,9 +1,8 @@
 import  jwt from 'jsonwebtoken';
 
-export const validateUser = (req, res, next) => {
+export const validateAuth = (req, res, next) => {
   const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-  
+  const token = authHeader && authHeader.split('Bearer ')[1]
     // If the client does not send auth - header, send a 401 response
     if (token == null) {
       return res.badreq({message: 'The request does not contain a valid access header'});

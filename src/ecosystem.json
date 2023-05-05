@@ -1,0 +1,14 @@
+{
+    "apps" : [
+       {
+          "name"          : "InteractiveApp",
+          "script"        : "npm",
+          "args"          : "run start",
+          "watch"         : false,
+          "cwd"           : "/var/www/interactive",
+          "merge_logs"    : true,
+          "instances"     : 1,
+          "exec_mode"     : "cluster"
+       }
+    ]
+  }

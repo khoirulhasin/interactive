@@ -4,16 +4,15 @@ import  { accessLog, errorLog, response } from '@middlewares/index';
 import  dotenv  from 'dotenv';
 import  dotenvExpand from 'dotenv-expand';
 import cors from 'cors';
+import '@config/database/mongo';
+import csrf from 'csurf';
 
 const env = dotenv.config({
   path: `${process.cwd}/src/environment/.env`
 })
 
-console.log(process.cwd())
 
 dotenvExpand.expand(env);
-
-console.log(process.env)
 
 const app = express();
 
@@ -27,11 +26,17 @@ app.use(response);
 
 app.use(cors<Request>());
 
+// OWSP
+app.disable( 'x-powered-by' );
+
+
 // this is the routes
 app.use('/', routes);
 
 // show log error
 app.use(errorLog);
+
+app.use(csrf()) ;
 
 app.use((_, res) => {
   res.json({ message: 'Server is running' });

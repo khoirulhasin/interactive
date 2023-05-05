@@ -1,5 +1,8 @@
 import  jwt from 'jsonwebtoken';
 
-export const createJwtToken = (email) => {
-    return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+export const decodeJWT = async (req) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split('Bearer ')[1]
+    const decoded = await jwt.verify(token, process.env.TOKEN_SECRET);
+    return decoded;
 }
