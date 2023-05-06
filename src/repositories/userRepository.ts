@@ -2,7 +2,7 @@
 import UserSchema from '@models/user.model';
 
 export const getUsersRepository = async () => {
-    const users = await UserSchema.find({}).populate('projects').exec();
+    const users = await UserSchema.find({});
     return users;
 } 
 

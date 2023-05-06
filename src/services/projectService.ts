@@ -1,6 +1,7 @@
 import { decodeJWT } from '@helpers/jwtHelper';
 import { getProjectsRepository, insertProjectRepository, deleteProjectlRepository, updateProjectByIdRepository, getProjectByIdRepository } from '@repositories/projectRepository';
-import ESAPI from 'node-esapi'
+import ESAPI from 'node-esapi';
+
 export const getProjectsService = async (req) => {
     const decoded = await decodeJWT(req)
     const projects = await getProjectsRepository(decoded._id);

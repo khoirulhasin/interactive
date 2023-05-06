@@ -8,7 +8,7 @@ import '@config/database/mongo';
 import csrf from 'csurf';
 
 const env = dotenv.config({
-  path: `${process.cwd}/src/environment/.env`
+  path: `${process.cwd}/.env`
 })
 
 
