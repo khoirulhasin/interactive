@@ -4,9 +4,24 @@ this project demonstrate the simple project manajement app. The following featur
 - project
 - task
 
+built by expressjs and mongodb
+
+here you find the best practices of development as well, such as CI/CD using action github and docker.
+
+**module package contributing this project**
+
+ - bcryptjs: encrypt and decrypt
+ - cors: 
+ - csurf: 
+ - date-fns: datetime
+ - express-validator: validator input
+ - jsonwebtoken: JWT for authentication
+ - mongoose: database ODM
+ - node-esapi: protect xss
+
 ####  A description of the API.
 
-the api uses RESTAPI, the example: 
+the api uses RESTAPI, we seperate the api in routes folder, the example: 
 
 ```
 taskRoute.get('/', validateAuth, getTasksController);
@@ -18,7 +33,7 @@ taskRoute.put('/:id', validateAuth, taskUpdateValidationRules(), validate, updat
 
 #### A description of the endpoints
 
-the endpoints refer this link: https://www.postman.com/telecoms-geoscientist-93913429/workspace/public/request/17865254-5c0aa403-36a4-43fb-82f5-620ef7bb6d7f
+we use postman, the endpoints refer this link: https://www.postman.com/telecoms-geoscientist-93913429/workspace/public/request/17865254-5c0aa403-36a4-43fb-82f5-620ef7bb6d7f. we put some the scenario exmaple there
 
 #### A description of the authentication
 the authentication implement JWT with encrypt-salt  password.
@@ -96,7 +111,7 @@ then putting in the routes
 ```
 userRoute.get('/:id', validateAuth, userGetByIdValidationRules(), validate, getUserByIdController);
 ```
-every user will be checked in validator before access some features
+every user will be checked the data authorization in validator before access some features
 
 ```
 export const projectDeleteValidationRules = () => {
@@ -134,7 +149,7 @@ export const projectDeleteValidationRules = () => {
 ```
 #### A description of the error handling
 
-error handling using middleware
+error handling using middleware. system error is not displayed to user for the security reason, only logging in serve
 
 ```
 export const accessLog = (req, _, next) => {
@@ -174,4 +189,22 @@ I provided the link https://www.postman.com/telecoms-geoscientist-93913429/works
 
 #### A link to the deployed API
 
-no server
+no server but we provide docker-compose, please try with the simple command
+
+for running and build
+
+```
+docker-compose up --build
+```
+
+only running
+
+```
+docker-compose up
+```
+
+remove docker
+
+```
+docker-compose rm
+```
