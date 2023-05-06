@@ -11,7 +11,7 @@ services:
       - ${MONGODB_DOCKER_PORT}:${MONGODB_DOCKER_PORT}
     volumes:
       - node-mongo-data
-  my-node-app:
+  node:
     depends_on:
       - mongodb
     build: .
@@ -20,9 +20,6 @@ services:
     env_file: .env
     ports:
       - ${NODE_PORT}:${NODE_PORT}
-    volumes:
-      - ./:/usr/src/app
-      - /usr/src/app/node_modules
     environment:
       - NODE_PORT=${NODE_PORT}
       - DB_HOST=mongodb

@@ -5,12 +5,10 @@ import  dotenv  from 'dotenv';
 import  dotenvExpand from 'dotenv-expand';
 import cors from 'cors';
 import '@config/database/mongo';
-import csrf from 'csurf';
 
 const env = dotenv.config({
   path: `${process.cwd}/.env`
 })
-
 
 dotenvExpand.expand(env);
 
@@ -36,7 +34,6 @@ app.use('/', routes);
 // show log error
 app.use(errorLog);
 
-app.use(csrf()) ;
 
 app.use((_, res) => {
   res.json({ message: 'Server is running' });
