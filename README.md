@@ -1,4 +1,4 @@
-#### A description of the project.
+## A description of the project.
 this project demonstrate the simple project manajement app. The following features:
 - user management
 - project
@@ -19,7 +19,7 @@ here you find the best practices of development as well, such as CI/CD using act
  - mongoose: database ODM
  - node-esapi: protect xss
 
-####  A description of the API.
+##  A description of the API.
 
 the api uses RESTAPI, we seperate the api in routes folder, the example: 
 
@@ -31,11 +31,11 @@ taskRoute.delete('/:id', validateAuth, taskDeleteValidationRules(), validate, de
 taskRoute.put('/:id', validateAuth, taskUpdateValidationRules(), validate, updateTaskController);
 ```
 
-#### A description of the endpoints
+## A description of the endpoints
 
 we use postman, the endpoints refer this link: https://www.postman.com/telecoms-geoscientist-93913429/workspace/public/request/17865254-5c0aa403-36a4-43fb-82f5-620ef7bb6d7f. we put some the scenario exmaple there
 
-#### A description of the authentication
+## A description of the authentication
 the authentication implement JWT with encrypt-salt  password.
 
 **create token**
@@ -78,7 +78,7 @@ export const comparePassword = async (plainPass, hashword) => {
    return bcrypt.compareSync(plainPass, hashword);
 };
 ```
-#### A description of the authorization
+## A description of the authorization
 
 authorization using middleware
 
@@ -147,7 +147,7 @@ export const projectDeleteValidationRules = () => {
     ]
 }
 ```
-#### A description of the error handling
+## A description of the error handling
 
 error handling using middleware. system error is not displayed to user for the security reason, only logging in serve
 
@@ -165,7 +165,7 @@ export const errorLog = (err, req, res, _) => {
     res.internal({ message: err.message });
 }
 ```
-#### A description of the security
+## A description of the security
 - every endpoint always validate with expresss-validator
 - implement OWASP security: disabled x-powered-by, protect to attact csrf, protect to xss
 
@@ -180,14 +180,14 @@ app.use(csrf()) ;
 ESAPI.encoder().encodeForHTML(payload.description)
 ```
 
-#### A description of the deployment
+## A description of the deployment
 
 we use action github to connect digitalocean, please refer to .github
 
-#### A markdown file that contains the documentation of the endpoints
+## A markdown file that contains the documentation of the endpoints
 I provided the link https://www.postman.com/telecoms-geoscientist-93913429/workspace/public/request/17865254-5c0aa403-36a4-43fb-82f5-620ef7bb6d7f
 
-#### A link to the deployed API
+## A link to the deployed API
 
 no server but we provide docker-compose, please try with the simple command
 
