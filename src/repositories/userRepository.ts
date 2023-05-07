@@ -1,13 +1,30 @@
 
+import { castIdToObject } from '@helpers/mongoHelper';
 import UserSchema from '@models/user.model';
 
 export const getUsersRepository = async () => {
-    const users = await UserSchema.find({});
+    const users = await UserSchema.aggregate([
+        {'$lookup': {
+            'from': 'projects',
+            'localField': "_id",
+            'foreignField': 'user_id',
+            'as': 'projects'
+        }}
+    ]);
     return users;
 } 
 
 export const getUserByIdRepository = async (id) => {
-    const user = await UserSchema.findOne({_id: id});
+    const user: any = await UserSchema.aggregate([
+        {'$match': { '_id': castIdToObject(id) }},
+        {'$lookup': {
+            'from': 'projects',
+            'localField': "_id",
+            'foreignField': 'user_id',
+            'as': 'project'
+        }},
+        {$unwind: '$project'}
+    ]);
     return user;
 } 
 

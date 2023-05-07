@@ -1,14 +1,47 @@
 
 import TaskSchema from '@models/task.model';
 import ProjectSchema from '@models/project.model';
+import { castIdToObject } from '@helpers/mongoHelper';
 
 export const getTasksRepository = async (userId) => {
-    const tasks = await TaskSchema.find({user_id: userId});
+    const tasks = await TaskSchema.aggregate([
+        {'$match': { 'user_id': castIdToObject(userId) }},
+        {'$lookup': {
+            'from': 'projects',
+            'localField': 'project_id',
+            'foreignField': '_id',
+            'as': 'project'
+        }},
+        {$unwind: '$project'},
+        {'$lookup': {
+            'from': 'users',
+            'localField': 'user_id',
+            'foreignField': '_id',
+            'as': 'user'
+        }},
+        {$unwind: '$user'}
+    ]);
     return tasks;
 } 
 
 export const getTaskByIdRepository = async (id) => {
-    const task = await TaskSchema.findOne({_id: id});
+    const task = await TaskSchema.aggregate([
+        {'$match': { '_id': castIdToObject(id) }},
+        {'$lookup': {
+            'from': 'projects',
+            'localField': 'project_id',
+            'foreignField': '_id',
+            'as': 'project'
+        }},
+        {$unwind: '$project'},
+        {'$lookup': {
+            'from': 'users',
+            'localField': 'user_id',
+            'foreignField': '_id',
+            'as': 'user'
+        }},
+        {$unwind: '$user'}
+    ]);
     return task;
 } 
 

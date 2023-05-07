@@ -27,5 +27,9 @@ services:
       - DB_PASSWORD=${MONGODB_PASSWORD}
       - DB_NAME=${MONGODB_DATABASE}
       - DB_PORT=${MONGODB_DOCKER_PORT}
+    volumes:
+      - ./:/usr/src/app
+      - ignore:/usr/src/app/node_modules/
 volumes:
   node-mongo-data:
+  ignore:

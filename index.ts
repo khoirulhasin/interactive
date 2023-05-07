@@ -40,5 +40,5 @@ app.use((_, res) => {
 });
 
 app.listen(process.env.NODE_PORT, () => {
-    console.log(`Example app listening on port test ${process.env.NODE_PORT}`)
+    console.log(`Interactive listening on port test ${process.env.NODE_PORT}`)
 })
